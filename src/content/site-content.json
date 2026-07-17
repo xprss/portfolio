@@ -2,26 +2,26 @@
   "profile": {
     "name": "Vincenzo Sagristano",
     "role": "Full-stack Software Engineer",
-    "location": "mondo/europa/italia/piemonte/torino",
+    "location": "Torino",
     "intro": "Le mie prime parole.",
-    "availability": "Open to senior frontend and full-stack roles",
-    "email": "alex.mercer@example.dev",
-    "tagline": "Classic developer portfolio with git-flavored UI and modular React architecture."
+    "availability": "Dev @ Plino Srl",
+    "email": "vincenzo.sagristano@yahoo.com",
+    "tagline": "Leave me here."
   },
   "socials": [
     {
       "label": "GitHub",
-      "href": "https://github.com/example",
+      "href": "https://github.com/xprss",
       "icon": "gh"
     },
     {
       "label": "LinkedIn",
-      "href": "https://linkedin.com/in/example",
+      "href": "https://linkedin.com/in/sagristano",
       "icon": "in"
     },
     {
       "label": "Email",
-      "href": "mailto:alex.mercer@example.dev",
+      "href": "mailto:vincenzo.sagristano@yahoo.com",
       "icon": "@"
     }
   ],
