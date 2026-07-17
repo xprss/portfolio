@@ -24,3 +24,23 @@ docker run --rm -p 8080:80 classic-dev-portfolio
 ```
 
 The production image uses a multi-stage build and serves the built SPA through Nginx with route fallback for project detail pages.
+
+## Redeploy Script
+
+To rebuild the image from the current repo state and restart the VPS container used by `nginx`:
+
+```bash
+./scripts/redeploy-portfolio.sh
+```
+
+Defaults:
+
+- image: `classic-dev-portfolio:latest`
+- container: `portfolio`
+- binding: `127.0.0.1:8082 -> 80`
+
+You can override them temporarily:
+
+```bash
+IMAGE_NAME=classic-dev-portfolio HOST_PORT=8082 ./scripts/redeploy-portfolio.sh
+```
