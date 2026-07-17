@@ -44,3 +44,16 @@ You can override them temporarily:
 ```bash
 IMAGE_NAME=classic-dev-portfolio HOST_PORT=8082 ./scripts/redeploy-portfolio.sh
 ```
+
+## GitHub Webhook Deploy
+
+The repo also includes:
+
+- `scripts/webhook-deploy.sh` to pull `origin/master` and redeploy the container
+- `scripts/github-webhook-server.mjs` to receive signed GitHub push webhooks and trigger the deploy script
+
+Recommended production wiring:
+
+- run the webhook listener as a systemd service on `127.0.0.1:8090`
+- proxy an exact `nginx` location such as `/__hooks/github-deploy` to that listener
+- configure a GitHub repository webhook for `push` events only
