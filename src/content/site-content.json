@@ -1,0 +1,138 @@
+{
+  "profile": {
+    "name": "Alex Mercer",
+    "role": "Frontend Engineer",
+    "location": "Remote / UTC",
+    "intro": "I build production-ready interfaces with a strong bias toward maintainable architecture, performance, and clear developer experience.",
+    "availability": "Open to senior frontend and full-stack roles",
+    "email": "alex.mercer@example.dev",
+    "tagline": "Classic developer portfolio with git-flavored UI and modular React architecture."
+  },
+  "socials": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/example",
+      "icon": "gh"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/example",
+      "icon": "in"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:alex.mercer@example.dev",
+      "icon": "@"
+    }
+  ],
+  "about": [
+    "I design frontend systems that stay readable six months later, not only on launch day.",
+    "My preferred workflow combines component discipline, type-safe content models, and visual systems that reflect the product’s identity instead of generic templates.",
+    "This portfolio uses a git-inspired layout language: commit timelines, branch markers, diff framing, and terminal accents translated into a polished presentation."
+  ],
+  "skills": [
+    {
+      "title": "Frontend",
+      "focus": "Interfaces that are resilient, accessible, and fast.",
+      "items": ["React", "TypeScript", "Vite", "CSS Architecture", "Accessibility", "Performance"]
+    },
+    {
+      "title": "Product Engineering",
+      "focus": "Clear abstractions and scalable implementation patterns.",
+      "items": ["Design Systems", "State Modeling", "Routing", "Testing Strategy", "DX", "Documentation"]
+    },
+    {
+      "title": "Delivery",
+      "focus": "Production readiness from first commit.",
+      "items": ["Docker", "CI/CD", "Static Hosting", "Observability Mindset", "Code Review", "Release Hygiene"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Northstar Labs",
+      "role": "Senior Frontend Engineer",
+      "period": "2023 - Present",
+      "summary": "Owned architecture and delivery for customer-facing web platforms with a focus on maintainable component systems.",
+      "achievements": [
+        "Led a React platform refactor that reduced duplicated UI logic across multiple product surfaces.",
+        "Introduced typed content and configuration patterns that improved maintainability for non-trivial interfaces.",
+        "Worked closely with design and backend peers to ship production features with fewer release regressions."
+      ],
+      "stack": ["React", "TypeScript", "GraphQL", "Storybook", "Docker"]
+    },
+    {
+      "company": "Signal Forge",
+      "role": "Frontend Developer",
+      "period": "2020 - 2023",
+      "summary": "Built internal and external tools with a bias toward usable interfaces and dependable delivery.",
+      "achievements": [
+        "Created reusable UI patterns for data-dense dashboards and project workflows.",
+        "Improved page performance and perceived responsiveness across several core experiences.",
+        "Collaborated on release processes and frontend quality practices for a growing engineering team."
+      ],
+      "stack": ["React", "JavaScript", "REST APIs", "Sass", "Jest"]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "mergeboard",
+      "title": "MergeBoard",
+      "summary": "A collaborative engineering dashboard that consolidates release status, review state, and deployment signals.",
+      "description": "MergeBoard is framed like a command center for active delivery. It brings pull request health, deploy checkpoints, and ownership context into a single interface designed for quick scanning and low friction handoffs.",
+      "stack": ["React", "TypeScript", "Vite", "Charts", "Docker"],
+      "highlights": [
+        "Structured the UI around reusable data panels and typed content contracts.",
+        "Designed a visual system that balanced technical density with readability.",
+        "Prepared the app for static deployment and containerized delivery."
+      ],
+      "repository": "https://github.com/example/mergeboard",
+      "demo": "https://example.dev/mergeboard",
+      "status": "Production concept"
+    },
+    {
+      "slug": "branchline",
+      "title": "Branchline",
+      "summary": "A project showcase site with git-inspired storytelling and modular content architecture.",
+      "description": "Branchline explores how engineering identity can shape presentation without becoming gimmicky. The site uses commit timelines, branch markers, and diff-inspired content cards to tell project stories while remaining clean and professional.",
+      "stack": ["React", "TypeScript", "Design Systems", "Responsive CSS"],
+      "highlights": [
+        "Modeled all content with data classes for clean rendering boundaries.",
+        "Split sections into maintainable page modules instead of a single monolithic file.",
+        "Focused on production-ready frontend structure rather than static mockup quality alone."
+      ],
+      "repository": "https://github.com/example/branchline",
+      "status": "Case study"
+    },
+    {
+      "slug": "deploykit",
+      "title": "DeployKit",
+      "summary": "A frontend starter optimized for shipping static apps with containers and sensible defaults.",
+      "description": "DeployKit packages a pragmatic frontend baseline: typed routes, reusable sections, deployment-focused docs, and a clean Docker + Nginx path. It is aimed at teams that want fewer decisions between scaffold and production.",
+      "stack": ["Vite", "React", "TypeScript", "Nginx", "Docker"],
+      "highlights": [
+        "Used a multi-stage Docker strategy to keep the runtime image lean.",
+        "Set up clean route fallback behavior for SPA navigation.",
+        "Kept the app structure modular for long-term maintenance."
+      ],
+      "repository": "https://github.com/example/deploykit",
+      "status": "Starter architecture"
+    }
+  ],
+  "gitHighlights": [
+    {
+      "label": "HEAD",
+      "title": "Architecture first",
+      "detail": "The portfolio is organized around typed content models, reusable section components, and isolated page concerns."
+    },
+    {
+      "label": "DIFF",
+      "title": "Readable implementation",
+      "detail": "UI modules are separated by responsibility so visual changes do not require chasing through one giant component file."
+    },
+    {
+      "label": "BRANCH",
+      "title": "Project detail routes",
+      "detail": "The landing page stays concise while deeper project context lives in dedicated routes with the same content source."
+    }
+  ]
+}
