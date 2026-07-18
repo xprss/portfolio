@@ -1,5 +1,6 @@
 import type { SiteContent } from "../models/portfolio";
 import { AboutSection } from "../components/home/AboutSection";
+import { CarouselSection } from "../components/home/CarouselSection";
 import { ContactSection } from "../components/home/ContactSection";
 import { ExperienceSection } from "../components/home/ExperienceSection";
 import { GitHighlightsSection } from "../components/home/GitHighlightsSection";
@@ -15,6 +16,7 @@ export function HomePage({ siteContent }: HomePageProps) {
   return (
     <div className="page">
       <HeroSection profile={siteContent.profile} />
+      <CarouselSection items={siteContent.carousel} />
       <AboutSection paragraphs={siteContent.about} />
       <SkillsSection groups={siteContent.skills} />
       <ExperienceSection items={siteContent.experience} />

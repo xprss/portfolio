@@ -9,9 +9,9 @@ export function GitHighlightsSection({ highlights }: GitHighlightsSectionProps) 
   return (
     <Section
       id="git"
-      eyebrow="05 / git"
-      title="Interface language borrowed from the command line."
-      intro="The coding motif is intentional rather than decorative noise: it helps structure the reading flow across the page."
+      eyebrow="06 / git"
+      title="Il linguaggio visivo prende spunto dal modo in cui lavoro."
+      intro="I riferimenti a branch, diff e terminale non sono decorativi: servono a organizzare la lettura e a dare coerenza tecnica alla presentazione."
     >
       <div className="git-grid">
         {highlights.map((highlight) => (

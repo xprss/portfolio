@@ -9,9 +9,9 @@ export function ExperienceSection({ items }: ExperienceSectionProps) {
   return (
     <Section
       id="experience"
-      eyebrow="03 / log"
-      title="Experience presented like a commit history."
-      intro="Each role is treated as a major branch of work: context, outcomes, and the tools that supported delivery."
+      eyebrow="04 / percorso"
+      title="Percorso tecnico raccontato come una cronologia di commit."
+      intro="Non solo ruoli formali: qui c'e' il filo che collega studio, prodotto, sperimentazione e costruzione di strumenti utili."
     >
       <div className="timeline">
         {items.map((item) => (

@@ -9,9 +9,9 @@ export function SkillsSection({ groups }: SkillsSectionProps) {
   return (
     <Section
       id="skills"
-      eyebrow="02 / stack"
-      title="A toolkit shaped for shipping."
-      intro="Capabilities are grouped the way real work happens: interface craft, product engineering, and release discipline."
+      eyebrow="03 / competenze"
+      title="Uno stack costruito su progetti reali."
+      intro="Le competenze sono raggruppate nel modo in cui emergono davvero dal lavoro: interfacce, ingegneria di prodotto e base tecnica trasversale."
     >
       <div className="card-grid">
         {groups.map((group) => (

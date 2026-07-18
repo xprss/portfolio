@@ -10,9 +10,9 @@ export function ContactSection({ profile, socials }: ContactSectionProps) {
   return (
     <Section
       id="contact"
-      eyebrow="06 / contact"
-      title="Ready to collaborate."
-      intro="Frontend only, no backend form handling. Contact stays direct: email first, profile links second."
+      eyebrow="07 / contatti"
+      title="Parliamone."
+      intro="Nessun form complesso: contatto diretto via email e link ai profili principali."
     >
       <div className="contact-panel">
         <div>

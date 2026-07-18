@@ -13,11 +13,11 @@ export function ProjectPage({ siteContent }: ProjectPageProps) {
     return (
       <div className="page page--narrow">
         <section className="project-detail">
-          <p className="section__eyebrow">missing route</p>
-          <h1>Unknown project slug.</h1>
-          <p>The requested project does not exist in the local content model.</p>
+          <p className="section__eyebrow">route mancante</p>
+          <h1>Progetto non trovato.</h1>
+          <p>Lo slug richiesto non esiste nel modello dati locale del portfolio.</p>
           <Link className="text-link" to="/">
-            return to portfolio
+            torna al portfolio
           </Link>
         </section>
       </div>
@@ -27,7 +27,7 @@ export function ProjectPage({ siteContent }: ProjectPageProps) {
   return (
     <div className="page page--narrow">
       <article className="project-detail">
-        <p className="project-detail__label">project / {project.status}</p>
+        <p className="project-detail__label">progetto / {project.status}</p>
         <h1>{project.title}</h1>
         <p className="project-detail__summary">{project.summary}</p>
         <p className="project-detail__description">{project.description}</p>
@@ -38,7 +38,7 @@ export function ProjectPage({ siteContent }: ProjectPageProps) {
         </ul>
 
         <section className="project-detail__section">
-          <h2>Diff highlights</h2>
+          <h2>Punti chiave</h2>
           <ul className="timeline__list">
             {project.highlights.map((highlight) => (
               <li key={highlight}>{highlight}</li>
@@ -48,17 +48,17 @@ export function ProjectPage({ siteContent }: ProjectPageProps) {
 
         <section className="project-detail__section project-detail__links">
           <a className="button button--primary" href={project.repository} target="_blank" rel="noreferrer">
-            view repository
+            apri repository
           </a>
           {project.demo ? (
             <a className="button button--secondary" href={project.demo} target="_blank" rel="noreferrer">
-              open demo
+              apri demo
             </a>
           ) : null}
         </section>
 
         <Link className="text-link" to="/#projects">
-          back to project index
+          torna all'indice progetti
         </Link>
       </article>
     </div>

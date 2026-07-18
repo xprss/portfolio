@@ -19,15 +19,15 @@ export function HeroSection({ profile }: HeroSectionProps) {
         <p className="hero__role">{profile.role}</p>
         <p className="hero__intro">{profile.intro}</p>
         <div className="hero__meta">
-          <span>location: {profile.location}</span>
-          <span>status: {profile.availability}</span>
+          <span>sede: {profile.location}</span>
+          <span>profilo: {profile.availability}</span>
         </div>
         <div className="hero__actions">
           <a className="button button--primary" href="#projects">
-            view projects
+            vedi i progetti
           </a>
           <a className="button button--secondary" href={`mailto:${profile.email}`}>
-            git commit -m "hello"
+            scrivimi
           </a>
         </div>
       </div>
@@ -35,11 +35,11 @@ export function HeroSection({ profile }: HeroSectionProps) {
         <p className="hero__panel-label">README.md</p>
         <p>{profile.tagline}</p>
         <div className="hero__branch-card">
-          <span>active branch</span>
-          <strong>feature/classic-portfolio</strong>
+          <span>branch attivo</span>
+          <strong>feature/portfolio-personale</strong>
         </div>
-        <Link className="hero__project-link" to="/projects/mergeboard">
-          inspect featured project
+        <Link className="hero__project-link" to="/projects/recipe-scaler">
+          apri il progetto in evidenza
         </Link>
       </aside>
     </section>

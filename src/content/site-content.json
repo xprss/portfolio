@@ -1,12 +1,12 @@
 {
   "profile": {
     "name": "Vincenzo Sagristano",
-    "role": "Full-stack Software Engineer",
+    "role": "Ingegnere Software Full-stack",
     "location": "Torino",
-    "intro": "Le mie prime parole.",
-    "availability": "Dev @ Plino Srl",
+    "intro": "Progetto interfacce e strumenti digitali con un approccio pragmatico: architettura chiara, esperienza d'uso pulita e attenzione concreta alla fase di rilascio.",
+    "availability": "Ingegnere software full-stack, con percorso magistrale in Cybersecurity al Politecnico di Torino",
     "email": "vincenzo.sagristano@yahoo.com",
-    "tagline": "Leave me here."
+    "tagline": "Portfolio personale con identita' visiva ispirata a git, contenuti modulari e focus sui progetti realmente pubblicati su GitHub."
   },
   "socials": [
     {
@@ -26,113 +26,151 @@
     }
   ],
   "about": [
-    "I design frontend systems that stay readable six months later, not only on launch day.",
-    "My preferred workflow combines component discipline, type-safe content models, and visual systems that reflect the product’s identity instead of generic templates.",
-    "This portfolio uses a git-inspired layout language: commit timelines, branch markers, diff framing, and terminal accents translated into a polished presentation."
+    "Uso il frontend come strumento per rendere i prodotti chiari, veloci da capire e sostenibili da mantenere nel tempo, non solo belli al primo rilascio.",
+    "Nei miei repository pubblici emergono soprattutto prodotti e utility costruiti attorno a un bisogno reale: scalare ricette, formattare JSON molto grandi, condividere ricordi durante eventi o recuperare ricette tramite bot.",
+    "Questo portfolio traduce quel modo di lavorare in una presentazione coerente: struttura modulare, stile ispirato a git e testi che raccontano progetti concreti invece di descrizioni generiche."
   ],
   "skills": [
     {
       "title": "Frontend",
-      "focus": "Interfaces that are resilient, accessible, and fast.",
-      "items": ["React", "TypeScript", "Vite", "CSS Architecture", "Accessibility", "Performance"]
+      "focus": "Interfacce curate, leggibili e orientate all'uso reale.",
+      "items": ["Angular", "React", "TypeScript", "Vite", "PrimeNG", "CSS Architecture"]
     },
     {
       "title": "Product Engineering",
-      "focus": "Clear abstractions and scalable implementation patterns.",
-      "items": ["Design Systems", "State Modeling", "Routing", "Testing Strategy", "DX", "Documentation"]
+      "focus": "Progetti applicativi con attenzione a struttura, chiarezza e continuita'.",
+      "items": ["NestJS", "Node.js", "MongoDB", "Routing", "Modellazione dei dati", "CI/CD"]
     },
     {
-      "title": "Delivery",
-      "focus": "Production readiness from first commit.",
-      "items": ["Docker", "CI/CD", "Static Hosting", "Observability Mindset", "Code Review", "Release Hygiene"]
+      "title": "Linguaggi e base tecnica",
+      "focus": "Stack trasversale maturato tra progetti personali, studio e prodotto.",
+      "items": ["C", "C++", "Java", "Kotlin", "Python", "Docker"]
     }
   ],
   "experience": [
     {
-      "company": "Northstar Labs",
-      "role": "Senior Frontend Engineer",
-      "period": "2023 - Present",
-      "summary": "Owned architecture and delivery for customer-facing web platforms with a focus on maintainable component systems.",
+      "company": "Progetti personali e di prodotto",
+      "role": "Ingegnere software full-stack",
+      "period": "2025 - oggi",
+      "summary": "Sviluppo strumenti web e prodotti digitali con una forte attenzione all'esperienza utente, alla struttura del codice e alla distribuzione.",
       "achievements": [
-        "Led a React platform refactor that reduced duplicated UI logic across multiple product surfaces.",
-        "Introduced typed content and configuration patterns that improved maintainability for non-trivial interfaces.",
-        "Worked closely with design and backend peers to ship production features with fewer release regressions."
+        "Ho lavorato su Vividi, una piattaforma sociale pensata per raccogliere e organizzare ricordi digitali durante eventi come matrimoni e celebrazioni.",
+        "Ho costruito recipe-scaler, uno strumento Angular per ridimensionare ingredienti in modo rapido, pulito e multilingua, pubblicato anche online.",
+        "Ho sviluppato utility focalizzate su casi d'uso specifici come certericette e big-json-formatter, con priorita' su utilita', chiarezza e assenza di attrito."
       ],
-      "stack": ["React", "TypeScript", "GraphQL", "Storybook", "Docker"]
+      "stack": ["Angular", "React", "TypeScript", "NestJS", "MongoDB", "Docker"]
     },
     {
-      "company": "Signal Forge",
-      "role": "Frontend Developer",
-      "period": "2020 - 2023",
-      "summary": "Built internal and external tools with a bias toward usable interfaces and dependable delivery.",
+      "company": "Politecnico di Torino",
+      "role": "Percorso tecnico e sperimentazione",
+      "period": "2021 - 2025",
+      "summary": "Parallelamente ai progetti applicativi ho lavorato su basi solide di ingegneria informatica, sicurezza e programmazione di sistema.",
       "achievements": [
-        "Created reusable UI patterns for data-dense dashboards and project workflows.",
-        "Improved page performance and perceived responsiveness across several core experiences.",
-        "Collaborated on release processes and frontend quality practices for a growing engineering team."
+        "Il profilo GitHub mostra esercizi e progetti in C, C++, Java e Kotlin, oltre a materiali di studio raccolti durante il percorso in Computer Engineering e Cybersecurity.",
+        "Ho esplorato temi come shell, sistemi operativi, crittografia, sviluppo mobile e strumenti per la sicurezza.",
+        "Questa base tecnica influenza anche i progetti frontend: preferisco interfacce semplici, dati modellati bene e comportamenti prevedibili."
       ],
-      "stack": ["React", "JavaScript", "REST APIs", "Sass", "Jest"]
+      "stack": ["C", "C++", "Java", "Kotlin", "Python", "Cybersecurity"]
     }
   ],
   "projects": [
     {
-      "slug": "mergeboard",
-      "title": "MergeBoard",
-      "summary": "A collaborative engineering dashboard that consolidates release status, review state, and deployment signals.",
-      "description": "MergeBoard is framed like a command center for active delivery. It brings pull request health, deploy checkpoints, and ownership context into a single interface designed for quick scanning and low friction handoffs.",
-      "stack": ["React", "TypeScript", "Vite", "Charts", "Docker"],
+      "slug": "recipe-scaler",
+      "title": "recipe-scaler",
+      "summary": "Strumento web per ridimensionare ingredienti in modo rapido, senza pubblicita' e con supporto multilingua.",
+      "description": "recipe-scaler nasce come utility pratica: inserire o leggere una ricetta, cambiare le quantita' e ottenere subito il nuovo bilanciamento degli ingredienti. Il progetto mette al centro velocita', pulizia dell'interfaccia e fruizione semplice anche da mobile.",
+      "stack": ["Angular", "TypeScript", "Frontend Web", "i18n"],
       "highlights": [
-        "Structured the UI around reusable data panels and typed content contracts.",
-        "Designed a visual system that balanced technical density with readability.",
-        "Prepared the app for static deployment and containerized delivery."
+        "Demo pubblica disponibile su recipe.ottonovembre.it.",
+        "Interfaccia pensata per essere chiara, veloce e priva di distrazioni.",
+        "Supporto multilingua progettato per crescere progressivamente."
       ],
-      "repository": "https://github.com/example/mergeboard",
-      "demo": "https://example.dev/mergeboard",
-      "status": "Production concept"
+      "repository": "https://github.com/xprss/recipe-scaler",
+      "demo": "https://recipe.ottonovembre.it",
+      "status": "Progetto live"
     },
     {
-      "slug": "branchline",
-      "title": "Branchline",
-      "summary": "A project showcase site with git-inspired storytelling and modular content architecture.",
-      "description": "Branchline explores how engineering identity can shape presentation without becoming gimmicky. The site uses commit timelines, branch markers, and diff-inspired content cards to tell project stories while remaining clean and professional.",
-      "stack": ["React", "TypeScript", "Design Systems", "Responsive CSS"],
+      "slug": "vividi",
+      "title": "Vividi",
+      "summary": "Piattaforma sociale per raccogliere ricordi digitali condivisi durante eventi come matrimoni, feste e momenti importanti.",
+      "description": "Vividi propone un'esperienza di condivisione foto orientata agli eventi: ogni contenuto entra in un album collettivo costruito dai partecipanti, con caption e sistemi di classificazione per raccontare il momento da prospettive diverse.",
+      "stack": ["Angular 19", "TypeScript", "PrimeNG", "NestJS", "MongoDB"],
       "highlights": [
-        "Modeled all content with data classes for clean rendering boundaries.",
-        "Split sections into maintainable page modules instead of a single monolithic file.",
-        "Focused on production-ready frontend structure rather than static mockup quality alone."
+        "Frontend Angular 19 e backend NestJS.",
+        "Approccio full-stack con attenzione alla fase di build e release.",
+        "Progetto orientato a un caso d'uso emotivo e collettivo, non solo tecnico."
       ],
-      "repository": "https://github.com/example/branchline",
-      "status": "Case study"
+      "repository": "https://github.com/xprss/vividi",
+      "demo": "https://www.ottonovembre.it",
+      "status": "Piattaforma full-stack"
     },
     {
-      "slug": "deploykit",
-      "title": "DeployKit",
-      "summary": "A frontend starter optimized for shipping static apps with containers and sensible defaults.",
-      "description": "DeployKit packages a pragmatic frontend baseline: typed routes, reusable sections, deployment-focused docs, and a clean Docker + Nginx path. It is aimed at teams that want fewer decisions between scaffold and production.",
-      "stack": ["Vite", "React", "TypeScript", "Nginx", "Docker"],
+      "slug": "certericette",
+      "title": "certericette",
+      "summary": "Bot Telegram per archiviare, recuperare e condividere ricette in modo rapido, con esportazione PDF e riferimenti interni.",
+      "description": "certericette e' pensato come strumento pratico per conservare ricette personali in forma strutturata: ingredienti, passaggi, riferimenti personalizzati e collegamenti interni vengono trasformati in una base consultabile e condivisibile.",
+      "stack": ["TypeScript", "Telegram Bot", "PDF Export", "Backend Logic"],
       "highlights": [
-        "Used a multi-stage Docker strategy to keep the runtime image lean.",
-        "Set up clean route fallback behavior for SPA navigation.",
-        "Kept the app structure modular for long-term maintenance."
+        "Gestione intelligente di ricette e riferimenti personalizzati.",
+        "Esportazione in PDF per la condivisione.",
+        "Interazione rapida attraverso Telegram invece di una UI tradizionale."
       ],
-      "repository": "https://github.com/example/deploykit",
-      "status": "Starter architecture"
+      "repository": "https://github.com/xprss/certericette",
+      "status": "Bot di produttivita'"
+    },
+    {
+      "slug": "big-json-formatter",
+      "title": "big-json-formatter",
+      "summary": "Utility minimalista per caricare o incollare JSON molto grandi e scaricarne una versione formattata.",
+      "description": "big-json-formatter punta su una singola funzione fatta bene: prendere input JSON anche voluminosi, normalizzarli e restituire un output leggibile senza frizioni inutili. E' un esempio diretto del mio interesse per strumenti piccoli ma utili.",
+      "stack": ["Utility Web", "JSON", "Developer Tooling"],
+      "highlights": [
+        "Pensato per payload JSON grandi.",
+        "Flusso semplice: input, formattazione, download.",
+        "Focalizzato su chiarezza e utilita' immediata."
+      ],
+      "repository": "https://github.com/xprss/big-json-formatter",
+      "status": "Developer utility"
     }
   ],
   "gitHighlights": [
     {
       "label": "HEAD",
-      "title": "Architecture first",
-      "detail": "The portfolio is organized around typed content models, reusable section components, and isolated page concerns."
+      "title": "Progetti con un bisogno chiaro",
+      "detail": "I repository piu' recenti nascono da casi d'uso concreti: cucina, condivisione di ricordi, strumenti per sviluppatori e automazione pratica."
     },
     {
       "label": "DIFF",
-      "title": "Readable implementation",
-      "detail": "UI modules are separated by responsibility so visual changes do not require chasing through one giant component file."
+      "title": "Full-stack quando serve, essenziale quando conviene",
+      "detail": "Passo con naturalezza da utility molto focalizzate a piattaforme piu' articolate, scegliendo stack e complessita' in base al problema reale."
     },
     {
       "label": "BRANCH",
-      "title": "Project detail routes",
-      "detail": "The landing page stays concise while deeper project context lives in dedicated routes with the same content source."
+      "title": "Identita' tecnica trasversale",
+      "detail": "Dal profilo GitHub emergono frontend web, bot, backend, mobile, sistemi e sicurezza: una base ampia che rende piu' solido anche il lavoro di prodotto."
+    }
+  ],
+  "carousel": [
+    {
+      "label": "progetto live",
+      "title": "recipe-scaler",
+      "description": "Uno strumento web senza pubblicita', rapido da usare e progettato per ridimensionare ingredienti in modo preciso, con supporto multilingua in crescita.",
+      "variant": "emerald",
+      "meta": ["Angular", "TypeScript", "Demo pubblica"]
+    },
+    {
+      "label": "prodotto full-stack",
+      "title": "Vividi",
+      "description": "Una piattaforma per raccogliere memorie condivise durante eventi importanti, costruita con un approccio full-stack e una forte componente narrativa.",
+      "variant": "amber",
+      "meta": ["Angular 19", "NestJS", "MongoDB"]
+    },
+    {
+      "label": "automazione utile",
+      "title": "certericette e big-json-formatter",
+      "description": "Mi interessa anche costruire strumenti piccoli ma molto utili: bot, formatter e utility che riducono attrito e tempo perso.",
+      "variant": "cyan",
+      "meta": ["Telegram bot", "Tooling", "Focus sull'utilita'"]
     }
   ]
 }

@@ -5,10 +5,10 @@ export function NotFoundPage() {
     <div className="page page--narrow">
       <section className="project-detail">
         <p className="section__eyebrow">404</p>
-        <h1>Route not found.</h1>
-        <p>The branch you tried to checkout does not exist in this portfolio.</p>
+        <h1>Pagina non trovata.</h1>
+        <p>Il branch che hai provato a fare checkout non esiste in questo portfolio.</p>
         <Link className="text-link" to="/">
-          return to HEAD
+          torna a HEAD
         </Link>
       </section>
     </div>

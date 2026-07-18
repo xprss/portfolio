@@ -47,6 +47,14 @@ export interface RawGitHighlight {
   detail: string;
 }
 
+export interface RawCarouselItem {
+  label: string;
+  title: string;
+  description: string;
+  variant: "emerald" | "amber" | "cyan" | "rose";
+  meta: string[];
+}
+
 export interface RawSiteContent {
   profile: RawProfile;
   socials: RawSocialLink[];
@@ -55,6 +63,7 @@ export interface RawSiteContent {
   experience: RawExperienceItem[];
   projects: RawProject[];
   gitHighlights: RawGitHighlight[];
+  carousel: RawCarouselItem[];
 }
 
 export class SocialLink {
@@ -167,6 +176,20 @@ export class GitHighlight {
   }
 }
 
+export class CarouselItem {
+  constructor(
+    public readonly label: string,
+    public readonly title: string,
+    public readonly description: string,
+    public readonly variant: "emerald" | "amber" | "cyan" | "rose",
+    public readonly meta: string[]
+  ) {}
+
+  static fromRaw(raw: RawCarouselItem) {
+    return new CarouselItem(raw.label, raw.title, raw.description, raw.variant, raw.meta);
+  }
+}
+
 export class SiteContent {
   constructor(
     public readonly profile: Profile,
@@ -175,7 +198,8 @@ export class SiteContent {
     public readonly skills: SkillGroup[],
     public readonly experience: ExperienceItem[],
     public readonly projects: Project[],
-    public readonly gitHighlights: GitHighlight[]
+    public readonly gitHighlights: GitHighlight[],
+    public readonly carousel: CarouselItem[]
   ) {}
 
   static fromRaw(raw: RawSiteContent) {
@@ -186,7 +210,8 @@ export class SiteContent {
       raw.skills.map(SkillGroup.fromRaw),
       raw.experience.map(ExperienceItem.fromRaw),
       raw.projects.map(Project.fromRaw),
-      raw.gitHighlights.map(GitHighlight.fromRaw)
+      raw.gitHighlights.map(GitHighlight.fromRaw),
+      raw.carousel.map(CarouselItem.fromRaw)
     );
   }
 }
