@@ -1,5 +1,5 @@
 import { useEffect, useState, type PropsWithChildren } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import type { Profile, SocialLink } from "../../models/portfolio";
 
 interface MainLayoutProps extends PropsWithChildren {
@@ -8,16 +8,17 @@ interface MainLayoutProps extends PropsWithChildren {
 }
 
 const navigationItems = [
-  { label: "About", href: "/#about" },
-  { label: "Stack", href: "/#skills" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Contact", href: "/#contact" }
+  { label: "Chi sono", href: "/#about" },
+  { label: "Competenze", href: "/#skills" },
+  { label: "Percorso", href: "/#experience" },
+  { label: "Progetti", href: "/#projects" },
+  { label: "Contatti", href: "/#contact" }
 ];
 
 export function MainLayout({ profile, socials, children }: MainLayoutProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     const onScroll = () => {
@@ -80,14 +81,18 @@ export function MainLayout({ profile, socials, children }: MainLayoutProps) {
           className="topbar__menu-button"
           aria-expanded={menuOpen}
           aria-controls="primary-navigation"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={menuOpen ? "Chiudi il menu di navigazione" : "Apri il menu di navigazione"}
           onClick={() => setMenuOpen((current) => !current)}
         >
           <span />
           <span />
           <span />
         </button>
-        <nav id="primary-navigation" className="topbar__nav" aria-label="Primary">
+        <nav
+          id="primary-navigation"
+          className="topbar__nav"
+          aria-label="Navigazione principale"
+        >
           {navigationItems.map((item) => (
             <a
               key={item.label}
@@ -99,7 +104,7 @@ export function MainLayout({ profile, socials, children }: MainLayoutProps) {
             </a>
           ))}
         </nav>
-        <div className="topbar__socials" aria-label="Social links">
+        <div className="topbar__socials" aria-label="Link social">
           {socials.map((social) => (
             <a
               key={social.label}
@@ -117,13 +122,9 @@ export function MainLayout({ profile, socials, children }: MainLayoutProps) {
       </header>
       <main>{children}</main>
       <footer className="footer">
-        <div>
-          <p className="footer__title">git status</p>
-          <p className="footer__text">working tree clean, ready for production.</p>
-        </div>
-        <NavLink className="footer__link" to="/">
-          return to HEAD
-        </NavLink>
+        <p className="footer__signature">
+          Vincenzo Sagristano • xprss • {currentYear}
+        </p>
       </footer>
     </div>
   );
