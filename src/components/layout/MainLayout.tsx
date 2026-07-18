@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import { useEffect, useState, type PropsWithChildren } from "react";
 import { Link, NavLink } from "react-router-dom";
 import type { Profile, SocialLink } from "../../models/portfolio";
 
@@ -16,18 +16,85 @@ const navigationItems = [
 ];
 
 export function MainLayout({ profile, socials, children }: MainLayoutProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+
+      setIsScrolled((current) => {
+        if (!current && currentY > 56) {
+          return true;
+        }
+
+        if (current && currentY < 20) {
+          return false;
+        }
+
+        return current;
+      });
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 720) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  const topbarClassName = [
+    "topbar",
+    menuOpen ? "topbar--menu-open" : "",
+    isScrolled ? "topbar--scrolled" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div className="app-shell">
-      <header className="topbar">
+      <header className={topbarClassName}>
         <div className="topbar__brand">
           <span className="topbar__prompt">~/portfolio</span>
           <Link className="topbar__name" to="/">
             {profile.name}
           </Link>
         </div>
-        <nav className="topbar__nav" aria-label="Primary">
+        <button
+          type="button"
+          className="topbar__menu-button"
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav id="primary-navigation" className="topbar__nav" aria-label="Primary">
           {navigationItems.map((item) => (
-            <a key={item.label} href={item.href} className="topbar__link">
+            <a
+              key={item.label}
+              href={item.href}
+              className="topbar__link"
+              onClick={() => setMenuOpen(false)}
+            >
               {item.label}
             </a>
           ))}
@@ -40,6 +107,7 @@ export function MainLayout({ profile, socials, children }: MainLayoutProps) {
               href={social.href}
               target={social.href.startsWith("mailto:") ? undefined : "_blank"}
               rel={social.href.startsWith("mailto:") ? undefined : "noreferrer"}
+              onClick={() => setMenuOpen(false)}
             >
               <span aria-hidden="true">{social.icon}</span>
               {social.label}
