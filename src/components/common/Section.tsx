@@ -9,8 +9,18 @@ interface SectionProps extends PropsWithChildren {
 }
 
 export function Section({ id, eyebrow, title, intro, aside, children }: SectionProps) {
+  const commandLabel = `root@portfolio:~/${id}$`;
+
   return (
     <section id={id} className="section">
+      <div className="section__chrome" aria-hidden="true">
+        <div className="terminal__bar terminal__bar--small">
+          <span />
+          <span />
+          <span />
+        </div>
+        <span className="section__command">{commandLabel}</span>
+      </div>
       <div className="section__header">
         <div>
           <p className="section__eyebrow">{eyebrow}</p>

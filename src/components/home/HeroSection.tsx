@@ -14,6 +14,10 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <span />
           <span />
         </div>
+        <div className="hero__terminal-meta" aria-hidden="true">
+          <span>bash --login</span>
+          <span>xprss@arch</span>
+        </div>
         <p className="terminal__line">$ whoami</p>
         <h1>{profile.name}</h1>
         <p className="hero__role">{profile.role}</p>
@@ -21,6 +25,11 @@ export function HeroSection({ profile }: HeroSectionProps) {
         <div className="hero__meta">
           <span>sede: {profile.location}</span>
           <span>profilo: {profile.availability}</span>
+        </div>
+        <div className="hero__command-cluster" aria-hidden="true">
+          <span className="hero__command-chip">cat /etc/profile</span>
+          <span className="hero__command-chip">tmux attach</span>
+          <span className="hero__command-chip">git status -sb</span>
         </div>
         <div className="hero__actions">
           <a className="button button--primary" href="#projects">
@@ -37,6 +46,16 @@ export function HeroSection({ profile }: HeroSectionProps) {
         <div className="hero__branch-card">
           <span>branch attivo</span>
           <strong>feature/portfolio-personale</strong>
+        </div>
+        <div className="hero__status-grid" aria-hidden="true">
+          <div>
+            <span>shell</span>
+            <strong>zsh + tmux</strong>
+          </div>
+          <div>
+            <span>prompt</span>
+            <strong>powerline</strong>
+          </div>
         </div>
         <Link className="hero__project-link" to="/projects/recipe-scaler">
           apri il progetto in evidenza

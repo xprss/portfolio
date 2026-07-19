@@ -71,6 +71,11 @@ export function MainLayout({ profile, socials, children }: MainLayoutProps) {
     <div className="app-shell">
       <header className={topbarClassName}>
         <div className="topbar__brand">
+          <div className="topbar__lights" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
           <span className="topbar__prompt">~/portfolio</span>
           <Link className="topbar__name" to="/">
             {profile.name}
