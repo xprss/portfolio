@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Section } from "../common/Section";
 import type { CarouselItem } from "../../models/portfolio";
 
@@ -8,6 +8,11 @@ interface CarouselSectionProps {
 
 export function CarouselSection({ items }: CarouselSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
+  const renderedItems = useMemo(
+    () => (items.length > 1 ? [...items, ...items] : items),
+    [items]
+  );
 
   useEffect(() => {
     if (items.length <= 1) {
@@ -15,13 +20,48 @@ export function CarouselSection({ items }: CarouselSectionProps) {
     }
 
     const intervalId = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % items.length);
+      setIsTransitionEnabled(true);
+      setActiveIndex((current) => current + 1);
     }, 5000);
 
     return () => {
       window.clearInterval(intervalId);
     };
   }, [items.length]);
+
+  useEffect(() => {
+    setActiveIndex(0);
+    setIsTransitionEnabled(true);
+  }, [items]);
+
+  useEffect(() => {
+    if (items.length <= 1 || activeIndex !== items.length) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setIsTransitionEnabled(false);
+      setActiveIndex(0);
+    }, 520);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [activeIndex, items.length]);
+
+  useEffect(() => {
+    if (isTransitionEnabled) {
+      return;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      setIsTransitionEnabled(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [isTransitionEnabled]);
 
   return (
     <Section
@@ -33,12 +73,16 @@ export function CarouselSection({ items }: CarouselSectionProps) {
       <div className="carousel" aria-live="polite">
         <div
           className="carousel__track"
-          style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)` }}
+          style={{
+            transform: `translate3d(-${activeIndex * 100}%, 0, 0)`,
+            transition: isTransitionEnabled ? undefined : "none"
+          }}
         >
-          {items.map((item) => (
+          {renderedItems.map((item, index) => (
             <article
-              key={`${item.label}-${item.title}`}
+              key={`${item.label}-${item.title}-${index}`}
               className={`carousel__slide carousel__slide--${item.variant}`}
+              aria-hidden={index >= items.length}
             >
               <p className="carousel__label">{item.label}</p>
               <h3>{item.title}</h3>
