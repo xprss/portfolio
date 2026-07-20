@@ -102,6 +102,72 @@ button:focus-visible {
   min-height: 100vh;
 }
 
+#root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background: #000;
+  opacity: 0;
+  transition: opacity 180ms ease-out;
+}
+
+body.portfolio-dim-active #root::after {
+  opacity: 0.74;
+  transition: opacity 9s linear;
+}
+
+.portfolio-dim-glow {
+  position: fixed;
+  display: block;
+  z-index: 1001;
+  pointer-events: none;
+  font-family: var(--font-display);
+  transform-origin: left center;
+  text-transform: lowercase;
+  white-space: nowrap;
+  opacity: 0;
+  text-shadow:
+    0 0 0 transparent;
+  animation: portfolio-dim-glow-rise 9s linear forwards;
+}
+
+@keyframes portfolio-dim-glow-rise {
+  0% {
+    opacity: 0;
+    text-shadow:
+      0 0 0 transparent;
+  }
+
+  28% {
+    opacity: 0.42;
+    text-shadow:
+      0 0 0.12em currentColor,
+      0 0 0.32em currentColor;
+  }
+
+  66% {
+    opacity: 0.78;
+    text-shadow:
+      0 0 0.16em currentColor,
+      0 0 0.42em currentColor,
+      0 0 0.84em currentColor,
+      0 0 1.7em currentColor;
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 0.18em currentColor,
+      0 0 0.48em currentColor,
+      0 0 0.96em currentColor,
+      0 0 1.8em currentColor,
+      0 0 3em currentColor,
+      0 0 4.8em currentColor;
+  }
+}
+
 .app-shell {
   width: var(--content-width);
   margin: 0 auto;

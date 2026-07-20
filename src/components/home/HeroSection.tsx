@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import type { Profile } from "../../models/portfolio";
 
@@ -6,6 +8,79 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ profile }: HeroSectionProps) {
+  const dimTimerRef = useRef<number | null>(null);
+  const aliasRef = useRef<HTMLSpanElement>(null);
+  const [glowStyle, setGlowStyle] = useState<CSSProperties | null>(null);
+  const isDimmed = glowStyle !== null;
+
+  const clearDimTimer = () => {
+    if (dimTimerRef.current !== null) {
+      window.clearTimeout(dimTimerRef.current);
+      dimTimerRef.current = null;
+    }
+  };
+
+  const updateGlowStyle = () => {
+    if (!aliasRef.current) {
+      return;
+    }
+
+    const rect = aliasRef.current.getBoundingClientRect();
+    const computedStyle = window.getComputedStyle(aliasRef.current);
+
+    setGlowStyle({
+      left: `${rect.left}px`,
+      top: `${rect.top}px`,
+      width: `${rect.width}px`,
+      height: `${rect.height}px`,
+      color: computedStyle.color,
+      fontFamily: computedStyle.fontFamily,
+      fontSize: computedStyle.fontSize,
+      fontWeight: computedStyle.fontWeight,
+      lineHeight: computedStyle.lineHeight,
+      letterSpacing: computedStyle.letterSpacing
+    });
+  };
+
+  const startDimSequence = () => {
+    clearDimTimer();
+    dimTimerRef.current = window.setTimeout(() => {
+      updateGlowStyle();
+      document.body.classList.add("portfolio-dim-active");
+    }, 3000);
+  };
+
+  const stopDimSequence = () => {
+    clearDimTimer();
+    setGlowStyle(null);
+    document.body.classList.remove("portfolio-dim-active");
+  };
+
+  useEffect(() => {
+    if (!isDimmed) {
+      return;
+    }
+
+    const handleViewportChange = () => {
+      updateGlowStyle();
+    };
+
+    window.addEventListener("resize", handleViewportChange);
+    window.addEventListener("scroll", handleViewportChange, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", handleViewportChange);
+      window.removeEventListener("scroll", handleViewportChange);
+    };
+  }, [isDimmed]);
+
+  useEffect(() => {
+    return () => {
+      clearDimTimer();
+      document.body.classList.remove("portfolio-dim-active");
+    };
+  }, []);
+
   return (
     <section className="hero">
       <div className="hero__terminal">
@@ -19,11 +94,20 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <span>xprss@arch</span>
         </div>
         <p className="terminal__line">$ whoami</p>
-        <h1 className="hero__name" aria-label={profile.name}>
+        <h1
+          className="hero__name"
+          aria-label={profile.name}
+          onPointerEnter={startDimSequence}
+          onPointerLeave={stopDimSequence}
+        >
           <span className="hero__name-text hero__name-text--full" aria-hidden="true">
             {profile.name}
           </span>
-          <span className="hero__name-text hero__name-text--alias" aria-hidden="true">
+          <span
+            ref={aliasRef}
+            className="hero__name-text hero__name-text--alias"
+            aria-hidden="true"
+          >
             @xprss
           </span>
         </h1>
@@ -68,6 +152,14 @@ export function HeroSection({ profile }: HeroSectionProps) {
           apri il progetto in evidenza
         </Link>
       </aside>
+      {glowStyle
+        ? createPortal(
+            <span className="portfolio-dim-glow" style={glowStyle} aria-hidden="true">
+              @xprss
+            </span>,
+            document.body
+          )
+        : null}
     </section>
   );
 }
