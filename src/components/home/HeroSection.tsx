@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent
+} from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import type { Profile } from "../../models/portfolio";
@@ -9,7 +15,9 @@ interface HeroSectionProps {
 
 export function HeroSection({ profile }: HeroSectionProps) {
   const dimTimerRef = useRef<number | null>(null);
+  const nameRef = useRef<HTMLHeadingElement>(null);
   const aliasRef = useRef<HTMLSpanElement>(null);
+  const [isTouchActive, setIsTouchActive] = useState(false);
   const [glowStyle, setGlowStyle] = useState<CSSProperties | null>(null);
   const isDimmed = glowStyle !== null;
 
@@ -56,6 +64,39 @@ export function HeroSection({ profile }: HeroSectionProps) {
     document.body.classList.remove("portfolio-dim-active");
   };
 
+  const resetTouchSequence = () => {
+    setIsTouchActive(false);
+    stopDimSequence();
+  };
+
+  const handlePointerEnter = (event: ReactPointerEvent<HTMLHeadingElement>) => {
+    if (event.pointerType === "mouse") {
+      startDimSequence();
+    }
+  };
+
+  const handlePointerLeave = (event: ReactPointerEvent<HTMLHeadingElement>) => {
+    if (event.pointerType === "mouse") {
+      stopDimSequence();
+    }
+  };
+
+  const handlePointerDown = (event: ReactPointerEvent<HTMLHeadingElement>) => {
+    if (event.pointerType === "mouse") {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (isTouchActive) {
+      resetTouchSequence();
+      return;
+    }
+
+    setIsTouchActive(true);
+    startDimSequence();
+  };
+
   useEffect(() => {
     if (!isDimmed) {
       return;
@@ -81,6 +122,26 @@ export function HeroSection({ profile }: HeroSectionProps) {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isTouchActive) {
+      return;
+    }
+
+    const handleOutsidePointerDown = (event: PointerEvent) => {
+      if (event.target instanceof Node && nameRef.current?.contains(event.target)) {
+        return;
+      }
+
+      resetTouchSequence();
+    };
+
+    document.addEventListener("pointerdown", handleOutsidePointerDown, true);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsidePointerDown, true);
+    };
+  }, [isTouchActive]);
+
   return (
     <section className="hero">
       <div className="hero__terminal">
@@ -95,10 +156,12 @@ export function HeroSection({ profile }: HeroSectionProps) {
         </div>
         <p className="terminal__line">$ whoami</p>
         <h1
-          className="hero__name"
+          ref={nameRef}
+          className={isTouchActive ? "hero__name hero__name--touch-active" : "hero__name"}
           aria-label={profile.name}
-          onPointerEnter={startDimSequence}
-          onPointerLeave={stopDimSequence}
+          onPointerEnter={handlePointerEnter}
+          onPointerLeave={handlePointerLeave}
+          onPointerDown={handlePointerDown}
         >
           <span className="hero__name-text hero__name-text--full" aria-hidden="true">
             {profile.name}
