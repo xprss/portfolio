@@ -19,7 +19,14 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <span>xprss@arch</span>
         </div>
         <p className="terminal__line">$ whoami</p>
-        <h1>{profile.name}</h1>
+        <h1 className="hero__name" aria-label={profile.name}>
+          <span className="hero__name-text hero__name-text--full" aria-hidden="true">
+            {profile.name}
+          </span>
+          <span className="hero__name-text hero__name-text--alias" aria-hidden="true">
+            xprss
+          </span>
+        </h1>
         <p className="hero__role">{profile.role}</p>
         <p className="hero__intro">{profile.intro}</p>
         <div className="hero__meta">

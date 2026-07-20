@@ -373,6 +373,51 @@ button:focus-visible {
   max-width: 9ch;
 }
 
+.hero__name {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+}
+
+.hero__name-text {
+  grid-area: 1 / 1;
+  transform-origin: left center;
+  transition:
+    opacity 260ms ease,
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 260ms ease,
+    letter-spacing 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity, filter, letter-spacing;
+}
+
+.hero__name-text--full {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) skewX(0deg);
+}
+
+.hero__name-text--alias {
+  opacity: 0;
+  color: var(--accent-strong);
+  letter-spacing: 0.12em;
+  transform: translate3d(-0.12em, 0.08em, 0) scale(0.8) skewX(-10deg);
+  text-transform: lowercase;
+}
+
+.hero__name:hover .hero__name-text--full,
+.hero__name:focus-visible .hero__name-text--full {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate3d(0.18em, -0.08em, 0) scale(1.08) skewX(8deg);
+}
+
+.hero__name:hover .hero__name-text--alias,
+.hero__name:focus-visible .hero__name-text--alias {
+  opacity: 1;
+  filter: blur(0);
+  letter-spacing: 0.04em;
+  transform: translate3d(0, 0, 0) scale(1) skewX(0deg);
+}
+
 .hero__role {
   margin: 0.6rem 0;
   font-size: 1.15rem;
