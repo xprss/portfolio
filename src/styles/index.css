@@ -316,8 +316,6 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  border: 1px solid rgba(126, 231, 135, 0.05);
-  border-radius: inherit;
   transform: scale(0.985);
 }
 
