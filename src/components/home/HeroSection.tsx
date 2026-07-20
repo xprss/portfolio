@@ -24,7 +24,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
             {profile.name}
           </span>
           <span className="hero__name-text hero__name-text--alias" aria-hidden="true">
-            xprss
+            @xprss
           </span>
         </h1>
         <p className="hero__role">{profile.role}</p>
